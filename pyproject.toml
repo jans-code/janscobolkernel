@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jancobolkernel"
+version = "0.0.1"
+authors = [
+  { name="Jan Arman Parpin", email="is@hidden.com" },
+]
+description = "A jupyter COBOL kernel."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Framework :: Jupyter :: JupyterLab :: 3"
+]
+dependencies = [
+    "ipykernel",
+    "pexpect"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jans-code/janscobolkernel"
+"Bug Tracker" = "https://github.com/jans-code/janscobolkernel/issues"
+
+[project.scripts]
+janscobolkernel = "janscobolkernel.install_kernelspec:install_kernelspec"
