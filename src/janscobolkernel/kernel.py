@@ -25,7 +25,7 @@ class janscobolkernel(Kernel):
             os.chdir(workingdir)
             with open(workingdir + "proj.cob", "w") as f:
                     f.write(code)
-            solution = pexpect.run('cobc -Ox ' + workingdir  + 'proj.cob').decode('UTF-8')
+            solution = pexpect.run('cobc -Ox -free ' + workingdir  + 'proj.cob').decode('UTF-8')
             if os.path.exists(workingdir + 'proj'):
                 solution = pexpect.run(workingdir + 'proj').decode('UTF-8')
             stream_content = {'name': 'stdout', 'text': solution}
@@ -38,4 +38,5 @@ class janscobolkernel(Kernel):
                }
 
     def do_shutdown(self, restart):
-        shutil.rmtree(workingdir)
+        if os.path.exists(workingdir):
+            shutil.rmtree(workingdir)
