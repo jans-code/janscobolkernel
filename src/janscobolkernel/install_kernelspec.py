@@ -1,5 +1,10 @@
 #!/usr/bin/env python
-import os, shutil
+# *_* coding: utf-8 *_*
+
+"""Kernel installer"""
+
+import os
+import shutil
 from jupyter_client.kernelspec import KernelSpecManager
 
 json ="""{"argv":["python","-m","janscobolkernel", "-f", "{connection_file}"],
